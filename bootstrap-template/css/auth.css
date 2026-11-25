@@ -1,0 +1,35 @@
+/* SalinTala auth pages: one centered card, soft background, "good morning" in 3 languages */
+body.auth { display: block; padding: 0; min-height: 100vh; overflow-x: hidden;
+  background: radial-gradient(620px 420px at 12% 8%, rgba(20,184,166,.22), transparent 60%),
+              radial-gradient(560px 420px at 92% 18%, rgba(99,102,241,.18), transparent 60%),
+              radial-gradient(520px 380px at 70% 100%, rgba(245,158,11,.16), transparent 60%), var(--bg); }
+html[data-theme="dark"] body.auth { background: radial-gradient(620px 420px at 12% 8%, rgba(20,184,166,.18), transparent 60%),
+  radial-gradient(560px 420px at 92% 18%, rgba(99,102,241,.16), transparent 60%), var(--bg); }
+.auth-top { position: fixed; top: 16px; right: 16px; z-index: 1000; }
+.auth-top .icon-btn { background: var(--surface); border-color: var(--line); color: var(--ink); }
+.auth-top .icon-btn:hover { background: var(--surface-2); color: var(--brand); }
+
+.shell { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px; }
+.lockup { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.5rem; letter-spacing: -.4px; color: var(--ink); text-decoration: none; margin-bottom: 22px; }
+.sheet { position: relative; z-index: 1; width: 100%; max-width: 450px; padding: 30px 32px 28px; border-radius: 28px; box-shadow: var(--shadow-lg); animation: rise .5s both; }
+.sheet h2 { font-weight: 800; letter-spacing: -.6px; font-size: 1.7rem; margin: 22px 0 4px; }
+
+.switch { display: grid; grid-template-columns: 1fr 1fr; padding: 4px; border-radius: 16px; background: var(--surface-2); border: 1px solid var(--line); }
+.switch a, .switch span { text-align: center; padding: 10px; border-radius: 12px; font-weight: 700; font-size: .92rem; text-decoration: none; color: var(--muted); transition: .2s; }
+.switch a:hover { color: var(--ink); }
+.switch .on { background: var(--grad); color: #fff; box-shadow: 0 8px 18px -8px var(--brand); }
+
+.sheet .form-control { padding: 13px 14px; }
+.meter { display: flex; gap: 4px; margin: 0 0 4px; }
+.meter i { flex: 1; height: 5px; border-radius: 5px; background: var(--line); transition: background .25s; }
+.meter-note { font-size: .78rem; color: var(--muted); min-height: 1.1em; margin-bottom: 12px; }
+.fine { text-align: center; color: var(--muted); font-size: .8rem; margin-top: 18px; }
+
+.hello { position: absolute; pointer-events: none; z-index: 0; display: none; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line);
+  box-shadow: var(--shadow); font-weight: 700; color: var(--ink); animation: bob 6s ease-in-out infinite; }
+.hello b { font-size: .66rem; letter-spacing: .4px; padding: 2px 9px; border-radius: 50rem; color: #fff; background: var(--l); }
+.hello.en { --l: var(--en); top: 20%; left: calc(50% - 410px); }
+.hello.fil { --l: var(--fil); top: 50%; left: calc(50% + 260px); animation-delay: -2s; }
+.hello.ceb { --l: var(--ceb); bottom: 14%; left: calc(50% - 370px); animation-delay: -4s; }
+@keyframes bob { 50% { transform: translateY(-9px); } }
+@media (min-width: 1040px) { .hello { display: flex; } }
